@@ -210,8 +210,10 @@ h6 {
 .btn {
   border-radius: var(--radius-pill);
   display: inline-flex;
+  font-size: 1rem;
   font-weight: 700;
-  padding: 1rem 3rem;
+  padding: clamp(0.875rem, 0.7557rem + 0.5089vw, 1rem)
+    clamp(1.5rem, 0.0687rem + 6.1069vw, 3rem);
 
   &--primary {
     background-color: var(--color-primary);
