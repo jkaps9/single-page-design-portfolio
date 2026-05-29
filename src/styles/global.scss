@@ -9,6 +9,7 @@
   --color-background-card: #{$color-background-card};
   --color-header-text: #{$color-header-text};
   --color-body-text: #{$color-body-text};
+  --color-body-text-light: #{$color-body-text-light};
 
   --color-blue: #{$color-blue};
   --color-yellow: #{$color-yellow};
@@ -157,11 +158,49 @@ ol {
 
 button {
   cursor: pointer;
-  font-family: inherit;
   border: none;
   background: none;
 }
 
 p {
   max-width: 65ch;
+}
+
+.btn {
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  font-weight: 700;
+  padding: 1rem 3rem;
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-body-text-light);
+
+    &:hover {
+      background-color: var(--color-yellow);
+    }
+
+    &:active {
+      background-color: var(--color-primary);
+      box-shadow:
+        0 0 0 2px var(--color-background),
+        0 0 0 4px var(--color-primary);
+    }
+  }
+
+  &--dark {
+    background-color: var(--color-background-card);
+    color: var(--color-body-text-light);
+
+    &:hover {
+      background-color: var(--color-blue);
+    }
+
+    &:active {
+      background-color: var(--color-background-card);
+      box-shadow:
+        0 0 0 2px var(--color-background),
+        0 0 0 4px var(--color-blue);
+    }
+  }
 }
