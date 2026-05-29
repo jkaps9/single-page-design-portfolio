@@ -169,6 +169,9 @@ p {
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
 <~~        Global Styles       ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
+body {
+  padding-block: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+}
 
 $fluid-headers: (
   h1: clamp(2.5rem, 2.1479rem + 1.5023vw, 3.5rem),
