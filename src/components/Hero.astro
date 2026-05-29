@@ -1,0 +1,42 @@
+---
+const services = [
+  { title: "Graphic Design" },
+  { title: "UI/UX" },
+  { title: "Apps" },
+  { title: "Illustrations" },
+  { title: "Photography" },
+  { title: "Motion Graphics" },
+];
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__text">
+      <h1>Design solutions made easy</h1>
+      <p>
+        With over ten years of experience in various design disciplines, I’m
+        your one-stop shop for your design needs.
+      </p>
+    </div>
+  </div>
+  <div class="hero__services">
+    <h2 aria-hidden="true">Services</h2>
+    <ul class="services-list">
+      {
+        services.map((service) => (
+          <li class="services-item">
+            <h3>{service.title}</h3>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero__services {
+    h2 {
+      @include visually-hidden;
+    }
+  }
+</style>

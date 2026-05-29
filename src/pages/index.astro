@@ -1,15 +1,9 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h1>Hello, World!</h1>
-  <button class="btn btn--dark">Free Consulatation</button>
-  <a
-    href="/"
-    class="btn btn--primary"
-  >
-    Free Consulatation
-  </a>
+  <Hero />
 </BaseLayout>
