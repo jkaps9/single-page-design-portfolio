@@ -28,3 +28,36 @@ import aboutImage from "@assets/images/image-amy.webp";
     </div>
   </div>
 </section>
+
+<style lang="scss">
+  .container {
+    @include flex-center;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+
+    @include bp(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: start;
+    }
+  }
+
+  .about {
+    &__image {
+      max-width: clamp(18.75rem, 8.3929rem + 21.5774vw, 27.8125rem);
+    }
+    &__content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include bp(lg) {
+        align-items: start;
+        flex-shrink: 0;
+        max-width: 540px;
+      }
+    }
+  }
+</style>
