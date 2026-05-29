@@ -1,0 +1,27 @@
+---
+import GraphicDesign from "@assets/images/pattern-graphic-design.svg";
+
+import UIUX from "@assets/images/pattern-ui-ux.svg";
+
+import Illustrations from "@assets/images/pattern-illustrations.svg";
+
+import MotionGraphics from "@assets/images/pattern-motion-graphics.svg";
+
+import Photography from "@assets/images/pattern-photography.svg";
+
+import Apps from "@assets/images/pattern-apps.svg";
+const { name } = Astro.props;
+---
+
+{name === "Graphic Design" && <GraphicDesign />}
+{name === "UI/UX" && <UIUX />}
+{name === "Apps" && <Apps />}
+{name === "Illustrations" && <Illustrations />}
+{name === "Photography" && <Photography />}
+{name === "Motion Graphics" && <MotionGraphics />}
+
+<style lang="scss">
+  svg {
+    margin-left: auto;
+  }
+</style>

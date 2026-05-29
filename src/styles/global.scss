@@ -170,6 +170,7 @@ p {
 <~~        Global Styles       ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
 body {
+  overflow-x: hidden;
   padding-block: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
 }
 

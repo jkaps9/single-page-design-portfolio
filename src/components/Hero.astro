@@ -1,11 +1,17 @@
 ---
+import SVG from "./SVG.astro";
+
 const services = [
-  { title: "Graphic Design" },
-  { title: "UI/UX" },
-  { title: "Apps" },
-  { title: "Illustrations" },
-  { title: "Photography" },
-  { title: "Motion Graphics" },
+  { title: "Graphic Design", icon: "pattern-graphic-design", color: "blue" },
+  { title: "UI/UX", icon: "pattern-ui-ux", color: "yellow" },
+  { title: "Apps", icon: "pattern-apps", color: "pink" },
+  { title: "Illustrations", icon: "pattern-illustrations", color: "primary" },
+  { title: "Photography", icon: "pattern-photography", color: "cyan" },
+  {
+    title: "Motion Graphics",
+    icon: "pattern-motion-graphics",
+    color: "purple",
+  },
 ];
 ---
 
@@ -23,7 +29,10 @@ const services = [
       <ul class="services-list">
         {
           services.map((service) => (
-            <li class="services-item">
+            <li class:list={["services-item", `bg-${service.color}`]}>
+              <div class="icon">
+                <SVG name={service.title} />
+              </div>
               <h3>{service.title}</h3>
             </li>
           ))
@@ -50,6 +59,57 @@ const services = [
       flex-direction: column;
       gap: 1.25rem;
       text-align: center;
+    }
+  }
+
+  .services {
+    &-list {
+      align-items: stretch;
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-item {
+      border-radius: 8px;
+      padding: 1.25rem;
+
+      h3 {
+        color: var(--color-body-text-light);
+      }
+
+      &:nth-child(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+      }
+
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        grid-column: 1 / span 2;
+      }
+    }
+  }
+
+  .bg- {
+    &blue {
+      background-color: var(--color-blue);
+    }
+    &purple {
+      background-color: var(--color-purple);
+    }
+    &cyan {
+      background-color: var(--color-cyan);
+    }
+    &pink {
+      background-color: var(--color-pink);
+    }
+    &yellow {
+      background-color: var(--color-yellow);
+    }
+
+    &primary {
+      background-color: var(--color-primary);
     }
   }
 
