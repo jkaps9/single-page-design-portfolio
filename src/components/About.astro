@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+
+import aboutImage from "@assets/images/image-amy.webp";
+---
+
+<section class="about">
+  <div class="container">
+    <div class="about__image">
+      <Image
+        src={aboutImage}
+        alt="Amy headshot"
+      />
+    </div>
+    <div class="about__content">
+      <h2>I'm Amy, and I'd love to work on your next project</h2>
+      <p>
+        I love working with others to create beautiful design solutions. I’ve
+        designed everything from brand illustrations to complete mobile apps.
+        I’m also handy with a camera!
+      </p>
+      <a
+        href="#"
+        class="btn btn--primary"
+      >
+        Free Consultation
+      </a>
+    </div>
+  </div>
+</section>
