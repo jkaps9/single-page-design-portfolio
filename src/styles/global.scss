@@ -173,6 +173,10 @@ body {
   padding-block: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
 }
 
+section {
+  padding-block: clamp(2rem, 0rem + 4.1667vw, 3.75rem);
+}
+
 $fluid-headers: (
   h1: clamp(2.5rem, 2.1479rem + 1.5023vw, 3.5rem),
   h2: clamp(2.5rem, 2.5rem + 0vw, 2.5rem),
