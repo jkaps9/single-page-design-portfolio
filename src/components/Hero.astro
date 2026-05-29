@@ -2,14 +2,13 @@
 import SVG from "./SVG.astro";
 
 const services = [
-  { title: "Graphic Design", icon: "pattern-graphic-design", color: "blue" },
-  { title: "UI/UX", icon: "pattern-ui-ux", color: "yellow" },
-  { title: "Apps", icon: "pattern-apps", color: "pink" },
-  { title: "Illustrations", icon: "pattern-illustrations", color: "primary" },
-  { title: "Photography", icon: "pattern-photography", color: "cyan" },
+  { title: "Graphic Design", color: "blue" },
+  { title: "UI/UX", color: "yellow" },
+  { title: "Apps", color: "pink" },
+  { title: "Illustrations", color: "primary" },
+  { title: "Photography", color: "cyan" },
   {
     title: "Motion Graphics",
-    icon: "pattern-motion-graphics",
     color: "purple",
   },
 ];
@@ -68,10 +67,22 @@ const services = [
       display: grid;
       gap: 1.25rem;
       grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 182px;
+
+      @include bp(md) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include bp(lg) {
+        grid-template-columns: repeat(6, 1fr);
+      }
     }
 
     &-item {
       border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 1.25rem;
 
       h3 {
@@ -86,7 +97,7 @@ const services = [
       &:nth-child(4),
       &:nth-child(5),
       &:nth-child(6) {
-        grid-column: 1 / span 2;
+        grid-column: span 2;
       }
     }
   }
