@@ -18,25 +18,36 @@ const services = [
         your one-stop shop for your design needs.
       </p>
     </div>
-  </div>
-  <div class="hero__services">
-    <h2 aria-hidden="true">Services</h2>
-    <ul class="services-list">
-      {
-        services.map((service) => (
-          <li class="services-item">
-            <h3>{service.title}</h3>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="hero__services">
+      <h2 aria-hidden="true">Services</h2>
+      <ul class="services-list">
+        {
+          services.map((service) => (
+            <li class="services-item">
+              <h3>{service.title}</h3>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </section>
 
 <style lang="scss">
+  $hero-spacing: clamp(2.5rem, -0.3571rem + 5.9524vw, 5rem);
+
   .hero__services {
     h2 {
       @include visually-hidden;
     }
+  }
+
+  .hero {
+    padding-top: $hero-spacing;
+  }
+
+  .container {
+    display: grid;
+    gap: $hero-spacing;
   }
 </style>
