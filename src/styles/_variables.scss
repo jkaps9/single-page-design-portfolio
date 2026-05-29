@@ -30,7 +30,7 @@ $space-3xl: 8rem;
 
 // Layout
 $container-max: 85rem;
-$container-padding: 5vw;
+$container-padding: clamp(1rem, 0.0458rem + 4.0712vw, 2rem);
 
 // --- Border radius
 $radius-sm: 4px;

@@ -44,6 +44,13 @@ const services = [
 
   .hero {
     padding-top: $hero-spacing;
+
+    &__text {
+      @include flex-center;
+      flex-direction: column;
+      gap: 1.25rem;
+      text-align: center;
+    }
   }
 
   .container {
