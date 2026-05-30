@@ -67,12 +67,25 @@ import slideFive from "@assets/images/image-slide-5.jpg";
   const nextBtn = document.getElementById("right");
   const images = document.querySelectorAll(".image");
 
+  const liveAnnouncement = document.createElement("div");
+  liveAnnouncement.setAttribute("aria-live", "assertive");
+  liveAnnouncement.setAttribute("aria-atomic", "true");
+  liveAnnouncement.classList.add("sr-only"); // CSS class to visually hide the element
+  document.body.appendChild(liveAnnouncement);
+
   // Initializing state variables
   let currentIndex = images.length >= 3 ? 2 : 0;
   let isDragging = false;
   let startX = 0;
   let currentTranslate = 0;
   let prevTranslate = 0;
+
+  function updateAnnouncement() {
+    if (images.length > 0) {
+      const activeSlideNumber = currentIndex + 1;
+      liveAnnouncement.textContent = `Slide ${activeSlideNumber} of ${images.length}`;
+    }
+  }
 
   function getGapAndWidth() {
     if (!track || images.length === 0) return { slideWidth: 0, gap: 0 };
@@ -110,6 +123,7 @@ import slideFive from "@assets/images/image-slide-5.jpg";
       track.classList.remove("no-transition");
     }
 
+    updateAnnouncement();
     // Lock navigation boundaries
     if (prevBtn) prevBtn.disabled = currentIndex === 0;
     if (nextBtn) nextBtn.disabled = currentIndex === images.length - 1;

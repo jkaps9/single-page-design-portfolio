@@ -230,7 +230,8 @@ h6 {
       background-color: var(--color-yellow);
     }
 
-    &:active {
+    &:active,
+    &:focus {
       background-color: var(--color-primary);
       box-shadow:
         0 0 0 2px var(--color-background),
@@ -248,11 +249,23 @@ h6 {
       background-color: var(--color-blue);
     }
 
-    &:active {
+    &:active,
+    &:focus {
       background-color: var(--color-background-card);
       box-shadow:
         0 0 0 2px var(--color-background),
         0 0 0 4px var(--color-blue);
     }
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
