@@ -1,0 +1,47 @@
+<section class="cta">
+  <div class="container">
+    <div class="card">
+      <div class="cta__text">
+        <h2>Book a call with me</h2>
+        <p>
+          I’d love to have a chat to see how I can help you. The best first step
+          is for us to discuss your project during a free consultation. Then we
+          can move forward from there.
+        </p>
+      </div>
+      <div class="cta__button">
+        <a
+          href="#"
+          class="btn btn--primary"
+        >
+          Free Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .card {
+    @include flex-center;
+    background: var(--color-background-card);
+    border-radius: 10px;
+    color: var(--color-body-text-light);
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: clamp(2.5rem, 1.6197rem + 3.7559vw, 5rem)
+      clamp(1rem, -0.0563rem + 4.507vw, 4rem);
+    text-align: center;
+
+    @include bp(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: start;
+    }
+  }
+
+  h2 {
+    color: inherit;
+    margin-bottom: 1.5rem;
+  }
+</style>
