@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer>
+  <div class="container">
+    <Icon name="logo" />
+    <a
+      href="#main"
+      class="btn btn--dark"
+    >
+      Free Consultation
+    </a>
+  </div>
+</footer>
+
+<style lang="scss">
+  [data-icon] {
+    width: clamp(3rem, 2.0458rem + 4.0712vw, 4rem);
+  }
+  .container {
+    @include flex-between;
+  }
+</style>
