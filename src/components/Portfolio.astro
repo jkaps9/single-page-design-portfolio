@@ -120,6 +120,22 @@ import slideFive from "@assets/images/image-slide-5.jpg";
     border-radius: var(--radius-pill);
     height: clamp(3rem, 2.0458rem + 4.0712vw, 4rem);
     width: clamp(3rem, 2.0458rem + 4.0712vw, 4rem);
+
+    &:hover {
+      background: var(--color-blue);
+    }
+
+    &:active {
+      background: var(--color-background-card);
+      box-shadow:
+        0 0 0 2px var(--color-background),
+        0 0 0 4px var(--color-blue);
+    }
+
+    &:disabled {
+      background: var(--color-body-text);
+      cursor: default;
+    }
   }
 
   .buttons {
@@ -128,17 +144,22 @@ import slideFive from "@assets/images/image-slide-5.jpg";
   }
 
   .image-container {
+    cursor: grab;
     display: flex;
     justify-content: flex-start;
     overflow: hidden;
     width: 100%;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   .image-track {
     display: flex;
     gap: $pad;
     overflow: visible;
-    transition: transform 0.3s;
+    transition: transform 0.4s ease-out;
     will-change: transform;
   }
 
@@ -146,10 +167,12 @@ import slideFive from "@assets/images/image-slide-5.jpg";
     display: flex;
     flex: 0 0 calc(80vw - $pad);
     height: clamp(11.25rem, 0.5153rem + 45.8015vw, 22.5rem);
+    user-select: none;
 
     img {
       height: 100%;
       max-width: unset;
+      pointer-events: none;
       width: auto;
     }
 
