@@ -1,3 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <section class="portfolio">
   <h2>My Work</h2>
+  <div class="buttons">
+    <button id="left"><Icon name="icon-arrow-left" /></button>
+    <button id="right"><Icon name="icon-arrow-right" /></button>
+  </div>
 </section>
+
+<style lang="scss">
+  .portfolio {
+    @include flex-center;
+    flex-direction: column;
+    gap: clamp(2.5rem, 2.0229rem + 2.0356vw, 3rem);
+  }
+
+  button {
+    @include flex-center;
+    background: var(--color-background-card);
+    border-radius: var(--radius-pill);
+    height: clamp(3rem, 2.0458rem + 4.0712vw, 4rem);
+    width: clamp(3rem, 2.0458rem + 4.0712vw, 4rem);
+  }
+
+  .buttons {
+    @include flex-center;
+    gap: 1rem;
+  }
+</style>
