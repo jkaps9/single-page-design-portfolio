@@ -61,14 +61,14 @@ import slideFive from "@assets/images/image-slide-5.jpg";
 </section>
 
 <script>
-  const container = document.querySelector(".image-container") as HTMLElement;
-  const track = document.querySelector(".image-track") as HTMLElement;
-  const prevBtn = document.querySelector("#left") as HTMLButtonElement;
-  const nextBtn = document.querySelector("#right") as HTMLButtonElement;
+  const container = document.querySelector(".image-container");
+  const track = document.querySelector(".image-track");
+  const prevBtn = document.getElementById("left");
+  const nextBtn = document.getElementById("right");
   const images = document.querySelectorAll(".image");
 
   // Initializing state variables
-  let currentIndex = 2;
+  let currentIndex = images.length >= 3 ? 2 : 0;
   let isDragging = false;
   let startX = 0;
   let currentTranslate = 0;
