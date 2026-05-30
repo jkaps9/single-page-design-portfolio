@@ -1,16 +1,113 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import slideOne from "@assets/images/image-slide-1.jpg";
+import slideTwo from "@assets/images/image-slide-2.jpg";
+import slideThree from "@assets/images/image-slide-3.jpg";
+import slideFour from "@assets/images/image-slide-4.jpg";
+import slideFive from "@assets/images/image-slide-5.jpg";
 ---
 
 <section class="portfolio">
   <h2>My Work</h2>
+  <div class="image-container">
+    <div class="image-track">
+      <div class="image">
+        <Image
+          src={slideOne}
+          alt="Abstract 3D render of interlocking teal/cyan curved strips arranged in a starburst pattern with white motion lines radiating outward, against a light blue background."
+        />
+      </div>
+      <div class="image">
+        <Image
+          src={slideTwo}
+          alt="Geometric pattern illustration featuring shapes — circles, triangles, arrows, eye icons, and asterisks — in varying shades of blue and periwinkle on a dark indigo background."
+        />
+      </div>
+      <div class="image">
+        <Image
+          src={slideThree}
+          alt="A hand holding a copy of the Good Newspaper, a publication celebrating positive news, displayed against a colorful geometric background with pink, yellow, and white shapes."
+        />
+      </div>
+      <div class="image">
+        <Image
+          src={slideFour}
+          alt="A stack of graphic design books and folders with yellow pages, alongside two vinyl records, on a gray surface. The top book reads 'Graphic Design Solutions.'"
+        />
+      </div>
+      <div class="image">
+        <Image
+          src={slideFive}
+          alt="A hand holding a smartphone displaying the portfolio website of Ben Kolde, showing the headline 'I design and develop experiences that make people's lives simple.' with a call-to-action button."
+        />
+      </div>
+    </div>
+  </div>
   <div class="buttons">
     <button id="left"><Icon name="icon-arrow-left" /></button>
     <button id="right"><Icon name="icon-arrow-right" /></button>
   </div>
 </section>
 
+<script>
+  const track = document.querySelector(".image-track");
+  const prevBtn = document.querySelector("#left");
+  const nextBtn = document.querySelector("#right");
+  const images = document.querySelectorAll(".image");
+
+  let currentIndex = 0;
+
+  function updateSlider() {
+    const container = document.querySelector(".image-container");
+    const containerWidth =
+      container instanceof HTMLElement
+        ? container.getBoundingClientRect().width
+        : 0;
+
+    if (containerWidth !== 0 && images.length > 0) {
+      const slideWidth = images[0].getBoundingClientRect().width;
+      const trackStyle = window.getComputedStyle(track!);
+      const gap = parseFloat(trackStyle.gap) || 0;
+
+      const screenCenter = containerWidth / 2;
+
+      const activeSlideCenter =
+        slideWidth * currentIndex + gap * currentIndex + slideWidth / 2;
+
+      const amountToMove = activeSlideCenter - screenCenter;
+
+      // Move the track using negative X coordinates
+      if (track instanceof HTMLElement)
+        track.style.transform = `translateX(${-amountToMove}px)`;
+
+      if (prevBtn instanceof HTMLButtonElement)
+        prevBtn.disabled = currentIndex === 0;
+      if (nextBtn instanceof HTMLButtonElement)
+        nextBtn.disabled = currentIndex === images.length - 1;
+    }
+  }
+
+  nextBtn?.addEventListener("click", () => {
+    if (currentIndex < images.length - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  window.addEventListener("resize", updateSlider);
+  updateSlider();
+</script>
+
 <style lang="scss">
+  $pad: clamp(1.25rem, 0.5344rem + 3.0534vw, 2rem);
   .portfolio {
     @include flex-center;
     flex-direction: column;
@@ -28,5 +125,36 @@ import { Icon } from "astro-icon/components";
   .buttons {
     @include flex-center;
     gap: 1rem;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .image-track {
+    display: flex;
+    gap: $pad;
+    overflow: visible;
+    transition: transform 0.3s;
+    will-change: transform;
+  }
+
+  .image {
+    display: flex;
+    flex: 0 0 calc(80vw - $pad);
+    height: clamp(11.25rem, 0.5153rem + 45.8015vw, 22.5rem);
+
+    img {
+      height: 100%;
+      max-width: unset;
+      width: auto;
+    }
+
+    @include bp(md) {
+      flex: 0 0 calc(35vw - $pad);
+    }
   }
 </style>
