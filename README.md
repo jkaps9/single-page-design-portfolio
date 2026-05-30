@@ -39,6 +39,8 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+- [Astro](https://astro.build/)
+- [SASS](https://sass-lang.com)
 
 ## Author
 
