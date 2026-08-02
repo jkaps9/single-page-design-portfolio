@@ -144,17 +144,21 @@ function dragEnd(event: TouchEvent | MouseEvent) {
 }
 
 // Mouse Actions
-container.addEventListener("mousedown", dragStart);
-window.addEventListener("mousemove", dragMove);
-window.addEventListener("mouseup", dragEnd);
+if (container) container.addEventListener("mousedown", dragStart);
 
+if (window) {
+  window.addEventListener("mousemove", dragMove);
+  window.addEventListener("mouseup", dragEnd);
+}
 // Touch Actions (Passive sets help prevent mobile performance scrolling lag)
-container.addEventListener("touchstart", dragStart, { passive: true });
-window.addEventListener("touchmove", dragMove, { passive: true });
-window.addEventListener("touchend", dragEnd);
+if (container)
+  container.addEventListener("touchstart", dragStart, { passive: true });
+if (window) {
+  window.addEventListener("touchmove", dragMove, { passive: true });
+  window.addEventListener("touchend", dragEnd);
 
-// Handle Resize Window
-window.addEventListener("resize", () => updateSlider(false));
-
+  // Handle Resize Window
+  window.addEventListener("resize", () => updateSlider(false));
+}
 // Initial Run
 updateSlider(false);
